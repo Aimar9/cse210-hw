@@ -58,26 +58,28 @@ class Program
 
         // While
 
-        Console.Write("What is the magic number? ");
-        string mg = Console.ReadLine();
-        int num1 = int.Parse(mg);
+        Random randomGenerator = new Random();
+        int mnumber = randomGenerator.Next(1, 101);
 
-        string gss = Console.ReadLine();
-        int num2 = int.Parse(gss);
+        int gues = -1;
 
-        while (num1 == num2)
+        while (gues != mnumber)
         {
             Console.Write("What is your guess? ");
+            gues = int.Parse(Console.ReadLine());
 
-            if (num1 < num2)
+            if (mnumber > gues)
             {
                 Console.WriteLine("Higher");
             }
-            else if (num1 > num2)
+            else if (mnumber > gues)
             {
                 Console.WriteLine("Lower");
             }
+            else
+            {
+                Console.WriteLine("You guessed it!");
+            }
         }
-        Console.WriteLine("You guessed it!");
     }
 }
